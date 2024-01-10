@@ -1,0 +1,42 @@
+#subNavProduct{
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    width: 330px;
+    height: 102px;
+    padding: 10px 0;
+    border-bottom: 1px solid #fff;
+
+    .imgBox{
+        width: 80px;
+        height: 80px;
+        margin-right: 15px;
+
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .textBox{
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+        &:hover .proudctTitle{
+            color: #f3a300;
+        }
+
+        .proudctTitle{
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .productPrice{
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            font-size: 14px;
+        }
+    }
+}

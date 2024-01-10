@@ -1,0 +1,46 @@
+#footer{
+    padding: 50px 5em 40px 5em;
+    background-color: #333;
+
+    .container{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-right: 10em;
+
+        .infoBox{
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1.5em;
+    
+            .imgBox{
+                width: 200px;
+        
+                img{
+                    max-width: 100%;
+                }
+            }
+    
+            .info{
+                word-wrap: break-word;
+            }
+    
+            .iconBox{
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+                font-size: 24px;
+    
+                i{
+                    cursor: pointer;
+                    transition: color 0.3s;
+    
+                    &:hover{
+                        color: #f3a300;
+                    }
+                }
+            }
+        }
+    }
+}

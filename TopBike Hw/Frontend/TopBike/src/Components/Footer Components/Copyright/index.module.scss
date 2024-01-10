@@ -1,0 +1,13 @@
+#copyright{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 1em;
+}
+
+@media screen and (max-width:768px) {
+    #copyright{
+        flex-direction: column;
+        row-gap: 3em;
+    }
+}

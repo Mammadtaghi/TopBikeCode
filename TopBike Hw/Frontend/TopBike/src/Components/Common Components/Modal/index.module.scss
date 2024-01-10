@@ -1,0 +1,54 @@
+#Modal{
+    width: 100%;
+    height: 100vh;
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000044;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    transition: 0.3s;
+
+    .container{
+        color: #fff;
+        position: absolute;
+        top: calc(50% - 300px);
+        left: calc(50% - 250px);
+        z-index: 10;
+        width: 500px;
+        height: 600px;
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        background-color: #202020;
+
+        .iconBox{
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            position: absolute;
+            top: -30px;
+            right: 0;
+            transition: 0.4s;
+
+            &:hover{
+                top: -35px;
+                transform: rotate(180deg);
+
+                i{
+                    color: #f3b300;
+                }
+            }
+
+            i{
+                font-size: 25px;
+            }
+        }
+    }
+}

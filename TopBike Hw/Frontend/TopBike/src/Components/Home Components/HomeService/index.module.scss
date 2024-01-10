@@ -1,0 +1,52 @@
+#HomeService{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5em;
+    font-size: 14px;
+    border: 1px solid black;
+    width: 33%;
+
+    .imgBox{
+        width: 46px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+
+    .title{
+        font-weight: 600;
+        letter-spacing: 4.2px;
+    }
+
+    .info{
+        font-weight: 500;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #HomeService{
+        width: 40%;
+    
+        .imgBox{
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1em;
+        }
+    
+        .title{
+            font-weight: 600;
+            letter-spacing: 4.2px;
+        }
+    
+        .info{
+            font-weight: 500;
+        }
+    }
+}

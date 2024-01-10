@@ -1,0 +1,20 @@
+#HomeServices{
+    padding: 4em 2em;
+    overflow-x: scroll;
+    
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    #HomeServices{
+        width: 100%;
+        
+        .container{
+            width: 155%;
+            column-gap: 2em;
+        }
+    }
+}

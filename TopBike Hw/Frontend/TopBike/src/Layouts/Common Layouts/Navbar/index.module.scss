@@ -1,0 +1,139 @@
+#nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .navList {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        column-gap: 3em;
+
+        li {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            
+            .navLink {
+                font-weight: 500;
+                font-size: 20px;
+                padding: 0 8px;
+                position: relative;
+
+                &:global.active {
+                    color: #f3a300;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                &:hover {
+                    color: #f3a300;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    margin-top: 7px;
+                    width: 0;
+                    height: 1px;
+                    position: absolute;
+                    right: 0;
+                    background-color: #b36300;
+                    transition: 0.35s ease-in;
+                }
+
+                &:hover:after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    left: 0;
+                }
+            }
+
+            .homeSubNav {
+                transform: translate(-45%, 2em);
+                display: grid;
+                gap: 1em 2em;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-template-areas: "grid1 grid2 grid3"
+                    "grid4 grid5 .";
+            }
+
+            .shopNav {
+                display: flex;
+                column-gap: 1em;
+                transform: translate(-39%, 2em);
+                
+                .imgBox {
+                    width: 203px;
+                    height: 304.5px;
+                }
+            }
+
+            .featuredNav {
+                transform: translate(-43%, 2em);
+                display: flex;
+                flex-direction: column;
+                row-gap: 1.5em;
+
+                .video {
+                    width: 640px;
+                    height: 360px;
+                }
+
+                .featuredLists {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+
+            .pagesNav {
+                transform: translate(-43%, 2em);
+                display: flex;
+                column-gap: 3em;
+            }
+
+            .blogsNav {
+                transform: translate(-65%, 2em);
+                display: flex;
+                column-gap: 3em;
+            }
+
+            &:hover {
+
+                .subNav {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                .homeSubNav {
+                    transform: translate(-45%, 1em);
+                }
+
+                .shopNav {
+                    transform: translate(-39%, 1em);
+                }
+
+                .featuredNav {
+                    transform: translate(-43%, 1em);
+                }
+
+                .pagesNav {
+                    transform: translate(-43%, 1em);
+                }
+
+                .blogsNav {
+                    transform: translate(-65%, 1em);
+                }
+            }
+        }
+    }
+}
