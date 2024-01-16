@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.3s;
 
     .imgBox {
         position: relative;
@@ -15,22 +16,52 @@
             align-self: center;
         }
 
-        .iconsContainer{
+        .iconModal {
+            visibility: hidden;
+            opacity: 0;
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 3;
+            z-index: 4;
             width: 100%;
             height: 100%;
             background-color: #00000077;
+            transition: 0.3s;
 
-            .iconBox{
-                color: #000;
+            .iconsContainer {
+                width: 200px;
+                display: flex;
+                align-items: center;
+                column-gap: 1.5em;
+                margin: auto;
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                margin-top: -25px;
+                margin-left: -100px;
+                transition: 0.5s;
 
+                .iconBox {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 40px;
+                    width: 50px;
+                    height: 50px;
+                    background-color: #181a1b;
+                    cursor: pointer;
+                    color: #fff;
+                    font-size: 20px;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background-color: #996700;
+                    }
+                }
             }
         }
 
-        .discountBox{
+        .discountBox {
             position: absolute;
             top: 10px;
             left: 10px;
@@ -44,18 +75,33 @@
         }
     }
 
-    .textBox{
+    .textBox {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
 
-        .title{
+        .title {
             font-size: 1.5em;
+            margin-bottom: 1em;
         }
 
-        .priceBox{
+        .priceBox {
+            font-size: 20px;
             display: flex;
             column-gap: 1em;
+        }
+    }
+
+    &:hover {
+
+        .iconModal {
+            visibility: visible;
+            opacity: 1;
+
+            .iconsContainer {
+                top: 50%;
+            }
         }
     }
 

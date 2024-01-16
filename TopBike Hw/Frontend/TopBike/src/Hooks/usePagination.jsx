@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-function usePagination(incomeData, incomeCurrentPage = 1, incomeDataPerPage = 2) {
+function usePagination(incomeData, incomeDataPerPage = 2, incomeCurrentPage = 1) {
 
   const [data, setData] = useState(incomeData)
   const [currentPage, setCurrentPage] = useState(incomeCurrentPage)

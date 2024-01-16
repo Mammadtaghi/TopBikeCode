@@ -8,7 +8,11 @@ function useLocalstorage(storageName, initialValue=null) {
     localStorage.setItem(`${storageName}`, JSON.stringify(data))
   }, [data])
 
-  return [data, setData]
+  function ManualUpdate() {
+    localStorage.setItem(`${storageName}`, JSON.stringify(data))
+  }
+
+  return [data, setData, ManualUpdate]
 }
 
 export default useLocalstorage

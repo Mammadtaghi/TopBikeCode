@@ -7,6 +7,7 @@ import NavList from '../../../Components/Navbar Components/NavList';
 import SubNavProduct from '../../../Components/Navbar Components/SubNav Product';
 import usePagination from '../../../Hooks/usePagination';
 import style from "./index.module.scss";
+import { useProducts } from '../../../Context/productContext';
 
 const SubNav = styled.div`
     display: flex;
@@ -21,60 +22,62 @@ const SubNav = styled.div`
     transition: 0.4s ease-out;
   `
 
-const FakeAPI = [
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 40,
-    discount: 15,
-  },
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 20,
-    discount: 10,
-  },
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 100,
-    discount: 4,
-  },
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 70,
-    discount: 8,
-  },
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 60,
-    discount: 3,
-  },
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 90,
-    discount: 0,
-  },
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 110,
-    discount: 0,
-  },
-  {
-    img: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 120,
-    discount: 0,
-  },
-]
+// const FakeAPI = [
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 40,
+//     discount: 15,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 20,
+//     discount: 10,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 100,
+//     discount: 4,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 70,
+//     discount: 8,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 60,
+//     discount: 3,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 90,
+//     discount: 0,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 110,
+//     discount: 0,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 120,
+//     discount: 0,
+//   },
+// ]
 
 function Navbar() {
 
-  const [PageData, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination(FakeAPI, 1, 3)
+  const { Products } = useProducts()
+
+  const [PageData, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination([...Products], 3, 1 )
 
   return (
     <nav id={style.nav}>
@@ -82,11 +85,11 @@ function Navbar() {
         <li>
           <NavLink to={"/"} className={style.navLink}>Home</NavLink>
           <SubNav className={`${style.subNav} ${style.homeSubNav}`}>
-            <HomeNav style={{ grid: "grid1" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home1_79702614-1d24-4067-9a69-2ee018b89d3b.jpg?v=1613577776"} title={"Home 1"} />
-            <HomeNav style={{ grid: "grid2" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home2_411f599e-59e9-4ba9-8de2-3d92ad6282c6.jpg?v=1613577776"} title={"Home 2"} />
-            <HomeNav style={{ grid: "grid3" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home3_8ef816a2-0531-4578-a497-139164f99d10.jpg?v=1613577776"} title={"Home 3"} />
-            <HomeNav style={{ grid: "grid4" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home4_3c5e0131-1366-4c93-a41b-9f35d04f4449.jpg?v=1613577776"} title={"Home 4"} />
-            <HomeNav style={{ grid: "grid5" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home5_6e4f660a-7d2a-4559-869e-761708fefc9a.jpg?v=1613577776"} title={"Home 5"} />
+            <HomeNav style={{ grid: "grid1" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home1_79702614-1d24-4067-9a69-2ee018b89d3b.jpg"} title={"Home 1"} />
+            <HomeNav style={{ grid: "grid2" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home2_411f599e-59e9-4ba9-8de2-3d92ad6282c6.jpg"} title={"Home 2"} />
+            <HomeNav style={{ grid: "grid3" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home3_8ef816a2-0531-4578-a497-139164f99d10.jpg"} title={"Home 3"} />
+            <HomeNav style={{ grid: "grid4" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home4_3c5e0131-1366-4c93-a41b-9f35d04f4449.jpg"} title={"Home 4"} />
+            <HomeNav style={{ grid: "grid5" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home5_6e4f660a-7d2a-4559-869e-761708fefc9a.jpg"} title={"Home 5"} />
           </SubNav>
         </li>
         <li>
@@ -198,9 +201,19 @@ function Navbar() {
               <li><NavLink>Left Sidebar</NavLink></li>
               <li><NavLink>Right Sidebar</NavLink></li>
             </NavList>
-            <NavList rowGap={"0px"} title={"New Products"} icons={<><i onClick={() => currentPage > 1 ? setCurrentPage(currentPage - 1) : null} className="fa-solid fa-angle-left"></i><i onClick={() => currentPage < lastPageIndex ? setCurrentPage(currentPage + 1) : null} className="fa-solid fa-angle-right"></i></>}>
+            <NavList
+              rowGap={"0px"}
+              title={"New Products"}
+              icons={<><i onClick={() => currentPage > 1 ? setCurrentPage(currentPage - 1) : null} className="fa-solid fa-angle-left"></i>
+                <i onClick={() => currentPage < lastPageIndex ? setCurrentPage(currentPage + 1) : null} className="fa-solid fa-angle-right"></i></>}>
               {PageData.map(item => (
-                <SubNavProduct key={v4()} title={item.title} discount={item.discount} price={item.price} img={item.img} />
+                <SubNavProduct
+                  key={v4()}
+                  title={item.title}
+                  discount={item.discount}
+                  price={item.price}
+                  image={item.image.url}
+                />
               ))}
             </NavList>
           </SubNav>

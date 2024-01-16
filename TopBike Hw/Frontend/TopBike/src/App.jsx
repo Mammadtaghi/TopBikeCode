@@ -10,6 +10,8 @@ import Error from "./Pages/Error Page";
 import Home from './Pages/Home Page';
 import Shop from "./Pages/Shop Page";
 import UserLayout from "./Layouts/UserLayout";
+import WishlistPage from "./Pages/Wishlist Page";
+import CartPage from "./Pages/Cart Page";
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
             <Route path={"*"} element={<Error />}/>
             <Route element={<UserLayout/>}>
               { user.role ? <Route path="/account" element={<Account />}/> : null}
+              { user.role ? <Route path="/wishlist" element={<WishlistPage />}/> : null}
+              { user.role ? <Route path="/cart" element={<CartPage />}/> : null}
             </Route>
           </Route>
         </Routes>

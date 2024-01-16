@@ -1,11 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
+import useLocalstorage from "../Hooks/useLocalstorage";
 
 const productContext = createContext()
 
 export const ProductProvider = ({ children }) => {
 
-    const [Products, setProducts] = useState([])
+    const [Products, setProducts] = useLocalstorage("products", [])
     const [isLoading, setIsLoading] = useState(true)
 
     async function GetProducts() {
@@ -27,7 +28,8 @@ export const ProductProvider = ({ children }) => {
     const data = {
         Products,
         setProducts,
-        isLoading
+        isLoading,
+        GetProducts,
     }
 
     return (

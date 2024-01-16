@@ -1,10 +1,11 @@
-import React from 'react'
-import style from "./index.module.scss";
+import axios from 'axios';
 import { ErrorMessage, Field, FieldArray, Form, Formik } from 'formik';
+import React from 'react';
 import * as yup from "yup";
 import Button from '../../../Components/Common Components/Button';
-import axios from 'axios';
+import { useProducts } from '../../../Context/productContext';
 import { useUser } from '../../../Context/userContext';
+import style from "./index.module.scss";
 
 const initialValues = {
   title: "",
@@ -24,6 +25,8 @@ const NewProductSchema = yup.object().shape({
 
 function NewProductForm() {
 
+  const { GetProducts } = useProducts()
+
   const { user } = useUser()
 
   async function handleFetch(values) {
@@ -31,17 +34,18 @@ function NewProductForm() {
       console.log(values);
       const response = await axios({
         method: "post",
-        url:"http://localhost:5000/products",
+        url: "http://localhost:5000/products",
         headers: {
           Authorization: `Bearer ${user.token}`
         },
-        data:values
-      }).then(res=>res.data)
+        data: values
+      }).then(res => res.data)
 
       console.log(response);
+      GetProducts()
 
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.message);
     }
   }
 

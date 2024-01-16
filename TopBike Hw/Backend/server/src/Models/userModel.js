@@ -7,7 +7,10 @@ const userSchema = new Schema({
     password: { type: String, required: true },
     role: { type: String, enum: ["user", "admin", "superadmin"], default: "user" },
     basket: [{
-        imageURL: { type: String },
+        image: {
+            public_id: { type: String, required: true },
+            url: { type: String, required: true }
+        },
         title: { type: String },
         price: { type: Number },
         count: { type: Number },
@@ -15,7 +18,10 @@ const userSchema = new Schema({
         discount: { type: Number, default: 0 },
     }],
     wishlist: [{
-        imageURL: { type: String },
+        image: {
+            public_id: { type: String, required: true },
+            url: { type: String, required: true }
+        },
         title: { type: String },
         price: { type: Number },
         categories: [{ type: String }],

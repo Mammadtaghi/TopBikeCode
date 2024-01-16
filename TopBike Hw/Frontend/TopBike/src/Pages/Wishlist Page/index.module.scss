@@ -1,0 +1,62 @@
+#Wishlist {
+    padding: 4em 2em;
+
+    #MyWishlist {
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .title {
+                font-size: 60px;
+                text-align: center;
+                margin-bottom: 2em;
+            }
+
+            .grid {
+                width: 100%;
+                display: grid;
+                place-items: baseline center;
+                gap: 2em;
+                margin-bottom: 5em;
+                transition: 0.3s;
+            }
+
+            .gridTest {
+                grid-template-areas:
+                    "grid1 grid2";
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+            }
+
+            .grid2x4 {
+                grid-template-areas:
+                    "grid1 grid2"
+                    "grid3 grid4"
+                    "grid5 grid6"
+                    "grid7 grid8";
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+            }
+
+            .grid4x2 {
+                grid-template-areas:
+                    "grid1 grid2 grid3 grid4"
+                    "grid5 grid6 grid7 grid8";
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .grid3x2 {
+                grid-template-areas:
+                    "grid1 grid2 grid3"
+                    "grid4 grid5 grid6";
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+    }
+
+}

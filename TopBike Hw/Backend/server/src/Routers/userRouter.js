@@ -1,5 +1,5 @@
 import express from "express";
-import { DeleteUserByID, GetAllUsers, GetUserByID, Login, Register } from "./../Controllers/userController.js";
+import { DeleteUserByID, DemoteUserByUsername, GetAllUsers, GetUserByID, Login, PromoteAsAdminByUsername, Register, UpdateUserWishlistByID, UpdateUserWishlistByUsername } from "./../Controllers/userController.js";
 import { CheckToken } from "../middleware/checkToken.js";
 import { CheckAdmin } from "../middleware/checkAdmin.js";
 import { CheckSuperAdmin } from "../middleware/checkSuperAdmin.js";
@@ -25,5 +25,14 @@ router.get("/users/:id", CheckToken, GetUserByID)
 
 router.delete("/users/:id", CheckToken, CheckAdmin, DeleteUserByID)
 
+// Put
+
+router.put("/users/promote", CheckToken, CheckSuperAdmin, PromoteAsAdminByUsername)
+
+router.put("/users/demote", CheckToken, CheckSuperAdmin, DemoteUserByUsername)
+
+router.put("/users/wishlist", CheckToken, UpdateUserWishlistByUsername)
+
+router.put("/users/wishlist/:id", CheckToken, UpdateUserWishlistByID)
 
 export default router
